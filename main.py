@@ -1,6 +1,8 @@
 import tempfile
 from pathlib import Path
 
+from starlette.middleware.cors import CORSMiddleware
+
 from app.config import settings
 from fastapi import FastAPI, Depends, HTTPException, UploadFile, File
 from pydantic import BaseModel
@@ -25,6 +27,13 @@ class ChatRequest(BaseModel):
 class LoginRequest(BaseModel):
     email: str
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # tighten later
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # ---------- AUTH ----------
 
