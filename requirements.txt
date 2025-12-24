@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+python-jose[cryptography]
+langchain
+langchain-community
+langchain-openai
+langchain-chroma
+chromadb
+beautifulsoup4==4.14.3
+openai
+python-multipart
+pypdf
+tiktoken
